@@ -1,0 +1,125 @@
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Inter/Inter-Regular.woff2?v=3.19') format('woff2'),
+    url('/fonts/Inter/Inter-Regular.woff?v=3.19') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Inter/Inter-Medium.woff2?v=3.19') format('woff2'),
+    url('/fonts/Inter/Inter-Medium.woff?v=3.19') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/Inter/Inter-SemiBold.woff2?v=3.19') format('woff2'),
+    url('/fonts/Inter/Inter-SemiBold.woff?v=3.19') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Inter/Inter-Bold.woff2?v=3.19') format('woff2'),
+    url('/fonts/Inter/Inter-Bold.woff?v=3.19') format('woff');
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.content {
+  overflow: auto;
+  position: relative;
+}
+
+.content::before {
+  content: '';
+  position: fixed;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.6) 0%
+    ),
+    url('/bg-image/splash.png') no-repeat padding-box fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  opacity: 1;
+  filter: blur(9px);
+  -webkit-filter: blur(9px);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@tailwind base;
+@tailwind components;
+
+.bg-checkbox {
+}
+
+.bg-checkbox label input {
+  @apply absolute hidden;
+}
+
+.bg-checkbox input + div,
+.bg-text-button {
+  @apply my-5 mr-5 block flex h-check-buttons w-check-buttons
+  items-center justify-between rounded-full bg-white px-5 text-base text-bridge-purple drop-shadow-lg;
+}
+
+.bg-checkbox input + div .check_img {
+  background: url('/icons/circle-check.svg') no-repeat;
+}
+
+.bg-checkbox input:checked + div {
+  @apply h-check-buttons w-check-buttons rounded-full bg-bridge-purple text-white;
+}
+
+.bg-checkbox input:checked + div .check_img {
+  background: url('/icons/circle-check-ticked.svg') no-repeat;
+}
+
+.red-button {
+  @apply h-10 rounded-lg bg-bridge-red px-4 pt-2 text-base text-white;
+}
+
+.sliding-label {
+  width: 550px;
+}
+
+.sliding-label label {
+  @apply block text-labelHeader font-normal text-bridge-red max-w-full;
+}
+
+input[type='number'] {
+  @apply  rounded-lg bg-white w-full text-base  drop-shadow-lg text-gray-500 py-4 px-2 w-full;
+}
+
+@tailwind utilities;
