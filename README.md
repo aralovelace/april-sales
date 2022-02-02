@@ -29,3 +29,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Add eslint
 - Use Framer library for nicer transition
 - add validation
+- Improve the styling to perfection
