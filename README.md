@@ -29,5 +29,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Add eslint
 - Use Framer library for nicer transition
 - add validation
-- Mobile Friendly - the design is very Desktop oriented but it can be enhanced
+- Mobile Friendly - the design is very Desktop version but it can be enhanced for mobile view
 - Improve the styling to perfection
