@@ -1,22 +1,22 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { salesItemSlice, StoreState } from "../state/redux";
+import { useDispatch, useSelector } from 'react-redux';
+import { salesItemSlice, StoreState } from '../state/redux';
 import { SalesItemsData } from '../data';
-import { SalesItemTotal } from '../interfaces';
+
 
 export const useCalculateTotalCostEffect = () => {
   const dispatch = useDispatch();
   const [success, setSuccess] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [overAllTotal, setOverAllTotal] = useState(0);
   const salesTotalState = useSelector(
-    (state: StoreState) => state.salesList.sales
-  ) as SalesItemTotal;
+    (state: StoreState) => state.salesList
+  );
+  const [overAllTotal, setOverAllTotal] = useState(
+    salesTotalState ? salesTotalState.total : 0
+  );
 
-  const createSales = (selected: any): void => {
 
+  const createSales = (selected: [string]): void => {
     let salesTotal: any | null = null;
-
 
     if (selected != null) {
       salesTotal = {
@@ -46,29 +46,41 @@ export const useCalculateTotalCostEffect = () => {
           : 0,
         placeOrder: selected.includes('8')
           ? SalesItemsData.filter((m) => m.id == 8)[0].cost
-          : 0
+          : 0,
+        selected: selected,
       };
 
-      setOverAllTotal (
-       salesTotal.identifyRequirements +
-       salesTotal.requestQuotation +
-       salesTotal.findProducts +
-       salesTotal.raiseOrder +
-       salesTotal.authoriseSale +
-       salesTotal.payProvider +
-       salesTotal.deliverProduct +
-       salesTotal.invoiceCheck +
-       salesTotal.placeOrder);
+      setOverAllTotal(
+        salesTotal.identifyRequirements +
+          salesTotal.requestQuotation +
+          salesTotal.findProducts +
+          salesTotal.raiseOrder +
+          salesTotal.authoriseSale +
+          salesTotal.payProvider +
+          salesTotal.deliverProduct +
+          salesTotal.invoiceCheck +
+          salesTotal.placeOrder
+      );
 
-      if (salesTotalState===null) {
+      if (salesTotalState === null) {
         dispatch(salesItemSlice.actions.create(salesTotal));
-      } else {
+      } else if (salesTotal) {
         dispatch(salesItemSlice.actions.update(salesTotal));
+        console.log(salesTotal);
       }
-      setLoading(true);
+
+
       setSuccess(true);
     }
   };
 
-  return { createSales, overAllTotal, loading, success, error: '' };
+  dispatch(salesItemSlice.actions.updateTotal(overAllTotal));
+
+  return {
+    createSales,
+    overAllTotal,
+    salesTotalState,
+    success,
+    error: '',
+  };
 };

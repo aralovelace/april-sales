@@ -8,4 +8,5 @@ export interface SalesItemTotal {
   deliverProduct: number;
   invoiceCheck: number;
   placeOrder: number;
+  selected:any
 }

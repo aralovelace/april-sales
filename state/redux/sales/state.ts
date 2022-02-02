@@ -1,15 +1,17 @@
-import {  SalesItemTotal } from "../../../interfaces";
-
+import { SalesItemTotal } from '../../../interfaces';
 
 export interface SalesItemState {
   sales: SalesItemTotal | null;
-  loading?:boolean;
-  error?:string;
+  total: number;
+  loading?: boolean;
+  clear?: null;
+  error?: string;
 }
-
 
 export const initialSalesItemState: SalesItemState = {
   sales: null,
   error: '',
-  loading: false
-,}
+  total: 0,
+  loading: false,
+  clear: null,
+};

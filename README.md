@@ -12,3 +12,20 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+
+
+## Libraries Used:
+- React Redux
+- Redux toolkit
+- TailwindCSS
+- formik
+- React Transition group
+
+
+## For Enhancement:
+- Add JEST and Cypress test
+- Add Storybook
+- Improve the state management so the data is more dynamic
+- Add eslint
+- Use Framer library for nicer transition
+- add validation

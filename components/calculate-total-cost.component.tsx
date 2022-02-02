@@ -1,15 +1,21 @@
 import React from 'react';
-import { SalesItemsData } from '../data';
+import { Data, SalesItemsData } from "../data";
 import { Formik } from 'formik';
 import { useCalculateTotalCostEffect } from './calculate-total-cost.effect';
 
-export const CalculateTotalCost = (props: { next: any; previous: any }) => {
-  const { createSales, overAllTotal } = useCalculateTotalCostEffect();
+export const CalculateTotalCost = (props: { next: any; previous: any,setPage2Return: any; }) => {
+  const { createSales, overAllTotal, salesTotalState } =
+    useCalculateTotalCostEffect();
+  props.setPage2Return('start');
 
   return (
     <section className="block">
       <Formik
-        initialValues={{ salesItemSelected: [] }}
+        initialValues={{
+          salesItemSelected: salesTotalState
+            ? salesTotalState.sales?.selected
+            : [],
+        }}
         onSubmit={(values) => {
           createSales(values.salesItemSelected as any);
         }}
@@ -23,7 +29,7 @@ export const CalculateTotalCost = (props: { next: any; previous: any }) => {
               }}
             >
               <h2 className="text-center text-2xl font-medium text-bridge-red">
-                CALCULATING YOUR TOTAL COSTS
+                {Data.TITLE}
               </h2>
               <div className="mx-auto mt-9 flex flex-wrap justify-center ">
                 {SalesItemsData.map((item, index) => (
@@ -34,6 +40,20 @@ export const CalculateTotalCost = (props: { next: any; previous: any }) => {
                         name="salesItemSelected"
                         value={item.id}
                         onChange={handleChange}
+                        defaultChecked={
+                          salesTotalState && salesTotalState.sales
+                            ? salesTotalState.sales.selected.includes(
+                                item.id.toString()
+                              )
+                            : false
+                        }
+                        checked={
+                          salesTotalState && salesTotalState.sales
+                            ? salesTotalState.sales.selected.includes(
+                                item.id.toString()
+                              )
+                            : false
+                        }
                       />
                       <div className="">
                         <div className="check_img h-8 w-8"></div>
@@ -54,15 +74,18 @@ export const CalculateTotalCost = (props: { next: any; previous: any }) => {
               <div className="mx-auto mt-5 flex flex-wrap justify-center">
                 <div className="mr-5 block h-check-buttons w-check-buttons"></div>
                 <div className="bg-text-button">
-                  <p className=" font-bold">TOTAL</p>
+                  <p className=" font-bold">{Data.TOTAL}</p>
                   <p className="text-3xl text-bridge-red">
                     £ {overAllTotal.toFixed(2)}
                   </p>
                 </div>
                 <div className="mr-5 block flex h-check-buttons w-check-buttons items-center justify-center">
-                  <a onClick={props.next} className="red-button cursor-pointer">
-                    Continue
-                  </a>
+                  <input
+                    type="submit"
+                    onClick={props.next}
+                    value={Data.CON_BTN}
+                    className="red-button mt-8 cursor-pointer"
+                  />
                 </div>
               </div>
             </form>

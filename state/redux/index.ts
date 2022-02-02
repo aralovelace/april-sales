@@ -6,20 +6,24 @@ import {
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { useMemo } from 'react';
+import { annualReducer, AnnualState, initialAnnualState } from './annual';
 let store: any;
 
 export * from './sales';
 
 export type StoreState = {
   salesList: SalesItemState;
+  annualList: AnnualState;
 };
 
 export const initialState: StoreState = {
   salesList: initialSalesItemState,
+  annualList: initialAnnualState,
 };
 
 const reducers = combineReducers({
   salesList: salesItemReducer,
+  annualList: annualReducer,
 });
 
 function initStore(preloadedState = initialState) {

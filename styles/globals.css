@@ -81,9 +81,6 @@ a {
 @tailwind base;
 @tailwind components;
 
-.bg-checkbox {
-}
-
 .bg-checkbox label input {
   @apply absolute hidden;
 }
@@ -91,7 +88,8 @@ a {
 .bg-checkbox input + div,
 .bg-text-button {
   @apply my-5 mr-5 block flex h-check-buttons w-check-buttons
-  items-center justify-between rounded-full bg-white px-5 text-base text-bridge-purple drop-shadow-lg;
+  items-center justify-between rounded-full bg-white px-5 text-base
+  text-bridge-purple drop-shadow-lg;
 }
 
 .bg-checkbox input + div .check_img {
@@ -107,19 +105,29 @@ a {
 }
 
 .red-button {
-  @apply h-10 rounded-lg bg-bridge-red px-4 pt-2 text-base text-white;
+  @apply h-12 rounded-full bg-bridge-red py-3 pl-4 pr-14 text-base text-white transition duration-300 hover:-translate-y-1;
+  background: #db2f20 url('/icons/arrow_button.svg') no-repeat 90% 50%;
+}
+
+.red-button-back {
+  @apply h-12 rounded-full bg-bridge-red py-3 pr-5 pl-14 text-base text-white transition duration-300 hover:-translate-y-1;
+  background: #db2f20 url('/icons/arrow_button_back.svg') no-repeat 10% 50%;
+}
+
+.red-button-secondary {
+  @apply h-12 items-center rounded-full bg-bridge-red px-8 py-3 text-center text-base text-white transition duration-300 hover:-translate-y-1;
 }
 
 .sliding-label {
-  width: 550px;
+  width: 500px;
 }
 
 .sliding-label label {
-  @apply block text-labelHeader font-normal text-bridge-red max-w-full;
+  @apply block max-w-full text-labelHeader font-normal text-bridge-red;
 }
 
 input[type='number'] {
-  @apply  rounded-lg bg-white w-full text-base  drop-shadow-lg text-gray-500 py-4 px-2 w-full;
+  @apply w-52 rounded-lg bg-white  py-4 px-2 text-base text-gray-500 drop-shadow-lg text-2xl focus:outline-none;
 }
 
 @tailwind utilities;

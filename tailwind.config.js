@@ -12,7 +12,8 @@ module.exports = {
         'bridge-purple': '#5F259F',
         'bridge-light-purple':'#C7B3DD',
         'bridge-black':'#2B2B2B',
-        'bridge-grey':'#979797'
+        'bridge-grey':'#979797',
+        'bridge-red':'#DB2F20'
       },
       width: {
         'check-buttons':'324px',
