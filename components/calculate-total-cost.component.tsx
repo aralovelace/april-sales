@@ -38,19 +38,19 @@ export const CalculateTotalCost = (props: { next: any; previous: any,setPage2Ret
                       <input
                         type="checkbox"
                         name="salesItemSelected"
-                        value={item.id}
+                        value={item.name}
                         onChange={handleChange}
                         defaultChecked={
                           salesTotalState && salesTotalState.sales
                             ? salesTotalState.sales.selected.includes(
-                                item.id.toString()
+                                item.name.toString()
                               )
                             : false
                         }
                         checked={
                           salesTotalState && salesTotalState.sales
                             ? salesTotalState.sales.selected.includes(
-                                item.id.toString()
+                                item.name.toString()
                               )
                             : false
                         }

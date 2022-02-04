@@ -3,7 +3,7 @@ import React from 'react';
 export const DefaultTemplate = (props: { children: any }) => {
   return (
     <>
-      <title>Bridge</title>
+      <title>April&apos;s Calculation</title>
       <main className="content">
         <div
           className="z-10 mx-auto block flex h-screen w-full

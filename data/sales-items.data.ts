@@ -1,48 +1,51 @@
+import { Sales } from "../interfaces";
+
 export const SalesItemsData = [
   {
-    id: 0,
     label:'Identify requirements',
-    cost: 6
+    cost: 6,
+    name:'identifyRequirements'
   },
   {
-    id: 1,
     label:'Request a quotation',
-    cost: 3
+    cost: 3,
+    name:'requestQuotation'
   },
   {
-    id: 2,
     label:'Find products',
-    cost: 16
+    cost: 16,
+    name: 'findProducts'
+
   },
   {
-    id: 3,
     label:'Raise an order',
-    cost: 6
+    cost: 6,
+    name: 'raiseOrder'
   },
   {
-    id: 4,
     label:'Authorise sale',
-    cost: 21.55
+    cost: 21.55,
+    name: 'authoriseSale',
   },
   {
-    id: 5,
     label:'Pay provider',
-    cost: 13
+    cost: 13,
+    name: 'payProvider',
   },
   {
-    id: 6,
     label:'Deliver product',
-    cost: 4.30
+    cost: 4.30,
+    name: 'deliverProduct',
   },
   {
-    id: 7,
     label:'Invoice check',
-    cost: 6
+    cost: 6,
+    name: 'invoiceCheck',
   },
   {
-    id: 8,
     label:'Place order',
-    cost: 6.50
+    cost: 6.50,
+    name: 'placeOrder',
   },
 
 ];
