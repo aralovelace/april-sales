@@ -11,7 +11,10 @@ export const SliderForm = (props: {
 }) => {
   return (
     <div className="flex w-full flex-row items-start justify-between">
-      <a onClick={props.previous} className="mt-10 block w-10 cursor-pointer mr-5">
+      <a
+        onClick={props.previous}
+        className="mt-10 mr-5 block w-10 cursor-pointer"
+      >
         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-bridge-red pt-0.5 text-center text-3xl text-white">
           <img src="/icons/previous-arrow.svg" className="h-5 w-4" />
         </div>
@@ -23,7 +26,7 @@ export const SliderForm = (props: {
           <span className="font-semibold">3</span>
         </small>
       </div>
-      <a onClick={props.next} className="mt-10 block w-10 cursor-pointer mx-5">
+      <a onClick={props.next} className="mx-5 mt-10 block w-10 cursor-pointer">
         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-bridge-red pt-0.5 text-center text-3xl text-white">
           <img src="/icons/next-arrow.svg" className="h-5 w-4" />
         </div>

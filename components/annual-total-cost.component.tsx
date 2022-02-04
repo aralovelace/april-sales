@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
-import { AnnualItemsData, Data } from "../data";
+import { AnnualItemsData, Data, transitionLinearStyles } from '../data';
 import { SliderForm } from './slider-form.component';
 import { Formik } from 'formik';
 import { AnnualTotalCostEffect } from './annual-total-cost.effect';
 import { Transition } from 'react-transition-group';
 
-export const AnnualTotalCost = (props: { next: any; previous: any, return: string }) => {
+export const AnnualTotalCost = (props: {
+  next: any;
+  previous: any;
+  return: string;
+}) => {
   const { createAnnualTotal, annualTotalState } = AnnualTotalCostEffect();
 
-  const [totalCost_1, setTotalCost_1] = useState(props.return==='start' ? true : false);
+  const [totalCost_1, setTotalCost_1] = useState(
+    props.return === 'start' ? true : false
+  );
   const [totalCost_2, setTotalCost_2] = useState(false);
-  const [totalCost_3, setTotalCost_3] = useState(props.return!=='start' ? true : false);
+  const [totalCost_3, setTotalCost_3] = useState(
+    props.return !== 'start' ? true : false
+  );
 
   const toggleTotalCost1 = () => {
     setTotalCost_2(false);
@@ -31,14 +39,7 @@ export const AnnualTotalCost = (props: { next: any; previous: any, return: strin
   const duration = 300;
   const defaultStyle = {
     transition: `all 1.5s linear`,
-    opacity: 0  ,
-  };
-
-  const transitionStyles: any = {
-    entering: { transform: 'translateX(40px)' , opacity: 1 },
-    entered: { transform: 'translateX(0px)' , opacity: 1 },
-    exiting: { transform: 'translateX(40px)', opacity: 0 },
-    exited: { transform: 'translateX(0px)', opacity: 0 },
+    opacity: 0,
   };
 
   return (
@@ -75,7 +76,7 @@ export const AnnualTotalCost = (props: { next: any; previous: any, return: strin
                       className="w-full"
                       style={{
                         ...defaultStyle,
-                        ...transitionStyles[state],
+                        ...transitionLinearStyles[state],
                       }}
                     >
                       {totalCost_1 && (
@@ -103,7 +104,7 @@ export const AnnualTotalCost = (props: { next: any; previous: any, return: strin
                       className="w-full"
                       style={{
                         ...defaultStyle,
-                        ...transitionStyles[state],
+                        ...transitionLinearStyles[state],
                       }}
                     >
                       {totalCost_2 && (
@@ -131,7 +132,7 @@ export const AnnualTotalCost = (props: { next: any; previous: any, return: strin
                       className="w-full"
                       style={{
                         ...defaultStyle,
-                        ...transitionStyles[state],
+                        ...transitionLinearStyles[state],
                       }}
                     >
                       {totalCost_3 && (
