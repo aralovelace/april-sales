@@ -12,7 +12,7 @@ export const useCalculateTotalCostEffect = () => {
     salesTotalState ? salesTotalState.total : 0
   );
 
-  const createSales = (selected: [string]): void => {
+  const createSales = (selected: any): void => {
     let salesTotal: SalesItemTotal | null = null;
     let checkboxes: any = [];
     let overallTotal = 0;

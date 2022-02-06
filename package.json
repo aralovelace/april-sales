@@ -5,10 +5,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --coverage",
+    "cypress": "cypress open",
+    "cypress:ci": "cypress run",
+    "test:suite": "next build && next lint && jest --coverage && cypress run"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
+    "@testing-library/jest-dom": "^5.16.2",
     "@types/react-redux": "^7.1.22",
     "formik": "^2.2.9",
     "next": "12.0.9",
@@ -21,12 +26,15 @@
     "redux-devtools-extension": "^2.13.9"
   },
   "devDependencies": {
+    "@types/jest": "^27.4.0",
     "@types/node": "17.0.13",
     "@types/react": "17.0.38",
     "@types/react-transition-group": "^4.4.4",
     "autoprefixer": "^10.4.2",
+    "cypress": "^9.4.1",
     "eslint": "8.8.0",
     "eslint-config-next": "12.0.9",
+    "eslint-plugin-cypress": "^2.12.1",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.18",
     "typescript": "4.5.5"
